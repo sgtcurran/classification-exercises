@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
 import os
+from tabulate import tabulate
+
 #%%
 def get_titanic_data():
     filename = 'titanic_data.csv'
@@ -76,7 +78,6 @@ JOIN customer_contracts USING (customer_id)
 JOIN customer_payments USING (Customer_id)
 JOIN internet_service_types
 
-
 '''
     print('Getting a fresh copy from SQL database...')
     df = pd.read_sql(query, url)
@@ -85,4 +86,6 @@ JOIN internet_service_types
     return df
 #%%
 get_telco_data()
+#%%
+print(tabulate(get_telco_data(), headers = 'keys', tablefmt = 'psql'))
 # %%
