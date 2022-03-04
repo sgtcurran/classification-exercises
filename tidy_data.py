@@ -5,6 +5,7 @@ import numpy as np
 import acquire 
 from env import host, user, password, get_db_url
 import seaborn as sns
+
 #%%
 # Exercie 1 Attendance Data
 # Read the data from the attendance table and calculate an 
