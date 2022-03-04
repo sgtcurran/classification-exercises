@@ -83,7 +83,71 @@ def get_telco_data():
     df.to_csv(filename, index=False)
     return df
 #%%
+def get_attendance_data():
+    filename = 'attendance_data.csv'
+    
+    if os.path.exists(filename):
+        print('Reading from csv file...')
+        return pd.read_csv(filename)
+    
+    database = 'tidy_data'
+    url = f'mysql+pymysql://{user}:{password}@{host}/{database}'
 
+
+    query = '''
+    SELECT *
+    FROM attendance
+    
+
+    '''
+    print('Getting a fresh copy from SQL database...')
+    df = pd.read_sql(query, url)
+    print('Saving to csv...')
+    df.to_csv(filename, index=False)
+    return df
 #%%
+def get_coffee_data():
+    filename = 'coffee_data.csv'
+    
+    if os.path.exists(filename):
+        print('Reading from csv file...')
+        return pd.read_csv(filename)
+    
+    database = 'tidy_data'
+    url = f'mysql+pymysql://{user}:{password}@{host}/{database}'
 
+
+    query = '''
+    SELECT *
+    FROM coffee_levels
+    
+
+    '''
+    print('Getting a fresh copy from SQL database...')
+    df = pd.read_sql(query, url)
+    print('Saving to csv...')
+    df.to_csv(filename, index=False)
+    return df
 # %%
+def get_cake_data():
+    filename = 'cake_data.csv'
+    
+    if os.path.exists(filename):
+        print('Reading from csv file...')
+        return pd.read_csv(filename)
+    
+    database = 'tidy_data'
+    url = f'mysql+pymysql://{user}:{password}@{host}/{database}'
+
+
+    query = '''
+    SELECT *
+    FROM cake_recipes
+    
+
+    '''
+    print('Getting a fresh copy from SQL database...')
+    df = pd.read_sql(query, url)
+    print('Saving to csv...')
+    df.to_csv(filename, index=False)
+    return df
